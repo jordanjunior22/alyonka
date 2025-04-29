@@ -1,18 +1,45 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Import icons for toggle
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Toggle open/close state for the menu
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Listen for scroll events to toggle fixed navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-white dark:bg-gray-900 text-lg p-8">
-      <div className="container mx-auto flex justify-between items-center py-4 px-8">
-        {/* Logo */}
-        <div className="text-[#871C10] font-bold text-xl">
-          <a href="/">Transporter</a>
+    <nav
+      className={`${
+        isScrolled ? 'fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 shadow-md' : 'sticky top-0'
+      } text-lg p-8 transition-all`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-8">
+        {/* Logo Image */}
+        <div>
+          <a href="/">
+            <img
+              src="/logo.png" // Replace with your actual logo path
+              alt="Transporter Logo"
+              className="h-auto max-h-12 sm:max-h-16 md:max-h-12 lg:max-h-20" // Responsive logo size
+            />
+          </a>
         </div>
 
         {/* Desktop Nav Links */}
@@ -20,8 +47,8 @@ const Navbar = () => {
           <a href="/" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Home</a>
           <a href="/about" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">About</a>
           <a href="/services" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Services</a>
-          <a href="/quote" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Get a Quote</a>
-          <a href="/track" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Drive For Us</a>
+          <a href="/get-a-quote" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Get a Quote</a>
+          <a href="/drive-for-us" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Drive For Us</a>
           <a href="/contact" className="text-[#871C10] hover:text-gray-500 dark:text-white dark:hover:text-[#871C10]">Contact</a>
         </div>
 
@@ -35,12 +62,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden p-4 mt-2 space-y-4 bg-[#871C10] text-white">
+        <div className="md:hidden p-4 space-y-4 bg-[#871C10] text-white">
           <a href="/" className="hover:text-gray-300 block">Home</a>
           <a href="/about" className="hover:text-gray-300 block">About</a>
           <a href="/services" className="hover:text-gray-300 block">Services</a>
-          <a href="/quote" className="hover:text-gray-300 block">Get a Quote</a>
-          <a href="/track" className="hover:text-gray-300 block">Drive For Us</a>
+          <a href="/get-a-quote" className="hover:text-gray-300 block">Get a Quote</a>
+          <a href="/drive-for-us" className="hover:text-gray-300 block">Drive For Us</a>
           <a href="/contact" className="hover:text-gray-300 block">Contact</a>
         </div>
       )}

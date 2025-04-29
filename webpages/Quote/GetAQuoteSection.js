@@ -3,7 +3,7 @@ import { Truck, Box, CheckCircle, MapPin } from 'lucide-react'; // Import icons
 
 export default function GetAQuoteSection() {
   return (
-    <section className="relative bg-[#f5f5f5] py-20 px-6 lg:px-20">
+    <section id='quote-form' className="relative bg-[#f5f5f5] py-20 px-6 lg:px-20">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Left Section - Form */}
         <div className="bg-gradient-to-r from-[#871C10] to-[#d95f5f] p-8 rounded-lg shadow-lg lg:w-1/2 text-center lg:text-left max-w-xl mx-auto mb-10 lg:mb-0">

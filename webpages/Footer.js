@@ -1,49 +1,63 @@
-import React from 'react';
-import { Factory, TowerControl, Inspect, Link2 } from 'lucide-react'; // Import icons
-
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-[#871C10] text-white py-16 px-6 lg:px-20">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-12 lg:space-y-0">
-        
-        {/* Left Section - Company Info */}
-        <div className="lg:w-1/3 text-center lg:text-left">
-          <h3 className="text-3xl font-extrabold mb-4">Transport Solutions</h3>
-          <p className="text-lg mb-6">
-            Providing dependable and efficient transportation solutions for all your needs. We’re here to ensure the safe and timely delivery of goods.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="text-white hover:text-gray-300">
-              <Factory size={24} />
+    <footer className="bg-[#871C10] text-white p-8">
+      <div className="container mx-auto py-20 px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Column 1: Logo and Info */}
+          <div>
+            <a href="/" className="flex items-center space-x-2">
+              <img
+                src="/logo.png" // Replace with your actual logo path
+                alt="Transporter Logo"
+                className="h-auto max-h-12" // Logo size
+              />
             </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <TowerControl size={24} />
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <Inspect size={24} />
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <Link2 size={24} />
-            </a>
+            <p className="mt-4 text-sm">
+              Transporter is your reliable partner in trucking and logistics solutions.
+            </p>
+          </div>
+
+          {/* Column 2: Quick Links */}
+          <div>
+            <h3 className="font-semibold text-lg">Quick Links</h3>
+            <ul className="mt-4 space-y-2">
+              <li><a href="/" className="hover:text-gray-300">Home</a></li>
+              <li><a href="/about" className="hover:text-gray-300">About</a></li>
+              <li><a href="/services" className="hover:text-gray-300">Services</a></li>
+              <li><a href="/contact" className="hover:text-gray-300">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact Information */}
+          <div>
+            <h3 className="font-semibold text-lg">Contact</h3>
+            <ul className="mt-4 space-y-2">
+              <li>Email: contact@transporter.com</li>
+              <li>Phone: +1 800-123-4567</li>
+              <li>Address: 123 Transport St, City, Country</li>
+            </ul>
+          </div>
+
+          {/* Column 4: Social Media Links */}
+          <div>
+            <h3 className="font-semibold text-lg">Follow Us</h3>
+            <ul className="mt-4 flex space-x-4">
+              <li><a href="#" className="hover:text-gray-300">Facebook</a></li>
+              <li><a href="#" className="hover:text-gray-300">Twitter</a></li>
+              <li><a href="#" className="hover:text-gray-300">Instagram</a></li>
+            </ul>
           </div>
         </div>
 
-        {/* Middle Section - Quick Links */}
-        <div className="lg:w-1/3 text-center lg:text-left">
-          <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-4 text-lg">
-            <li><a href="#home" className="hover:text-gray-300">Home</a></li>
-            <li><a href="#services" className="hover:text-gray-300">Services</a></li>
-            <li><a href="#about" className="hover:text-gray-300">About Us</a></li>
-            <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
-          </ul>
-        </div>
-
-        {/* Right Section - Copyright */}
-        <div className="lg:w-1/3 text-center lg:text-right">
-          <p className="text-lg">© 2025 Transport Solutions. All Rights Reserved.</p>
+        {/* Bottom Section: Copyright */}
+        <div className="text-center mt-8">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Transporter. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

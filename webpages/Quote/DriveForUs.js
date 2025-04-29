@@ -96,7 +96,7 @@ export default function DriveForUsSection() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 px-8 bg-[#871C10] text-white text-lg font-semibold rounded-full hover:bg-[#6e140f] transition duration-300"
+              className="cursor-pointer w-full py-3 px-8 bg-[#871C10] text-white text-lg font-semibold rounded-full hover:bg-[#6e140f] transition duration-300"
             >
               Apply Now
             </button>

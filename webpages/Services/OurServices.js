@@ -3,7 +3,7 @@ import { Truck, Box, Globe, Shield } from 'lucide-react'; // Import Lucid React 
 
 export default function OurServices() {
   return (
-    <section className="relative bg-[#f5f5f5] py-20 px-6 lg:px-20">
+    <section id='services' className="relative bg-[#f5f5f5] py-20 px-6 lg:px-20">
       <div className="absolute top-0 left-0 right-0 -z-10">
         {/* Background diagonal dividers */}
         <svg width="100%" height="200px" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">

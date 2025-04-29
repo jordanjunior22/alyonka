@@ -7,7 +7,8 @@ import GetAQuoteSection from "@/webpages/Quote/GetAQuoteSection";
 import DriveForUsSection from "@/webpages/Quote/DriveForUs";
 import ContactPageSection from "@/webpages/Contact/ContactUs";
 import Footer from "@/webpages/Footer";
-
+import CallToActionBanner from "@/components/ui/CallToActionBanner";
+import Testimonials from "@/components/ui/Testimonial";
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <AboutUsSection/>
       <GetAQuoteSection/>
       <DriveForUsSection/>
+      <CallToActionBanner/>
+      <Testimonials/>
       <ContactPageSection/>
       <Footer/>
     </div>
